@@ -1,0 +1,7 @@
+{
+  "name": "polymer-expenses",
+  "short_name": "polymer-expenses",
+  "description": "an expenses app build in polymer",
+  "start_url": "/",
+  "display": "standalone"
+}

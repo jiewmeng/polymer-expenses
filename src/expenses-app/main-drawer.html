@@ -1,0 +1,31 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../../bower_components/paper-menu/paper-menu.html">
+<link rel="import" href="../../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+
+<dom-module id="main-drawer">
+  <style>
+    paper-menu a {
+      text-decoration: none;
+      color: inherit;
+    }
+  </style>
+
+  <template>
+    <paper-menu selected="0">
+      <paper-item href="/dashboard" on-tap="menuTap">Dashboard</paper-item>
+      <paper-item href="/settings" on-tap="menuTap">Settings</paper-item>
+    </paper-menu>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'main-drawer',
+
+      menuTap(e) {
+        window.location = e.currentTarget.getAttribute('href');
+      }
+    });
+  </script>
+</dom-module>

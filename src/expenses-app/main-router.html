@@ -1,0 +1,20 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/app-route/app-route.html">
+
+<dom-module id="main-router">
+  <template>
+    <app-location route="{{route}}"></app-location>
+
+    <app-route
+      route="{{route}}"
+      pattern="/:view"
+      data="{{routeData}}"
+      tail="{{subroute}}"></app-route>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'main-router'
+    });
+  </script>
+</dom-module>

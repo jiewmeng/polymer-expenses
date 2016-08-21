@@ -1,0 +1,65 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<link rel="import" href="../../bower_components/app-layout/app-drawer-layout/app-drawer-layout.html">
+<link rel="import" href="../../bower_components/app-layout/app-drawer/app-drawer.html">
+<link rel="import" href="../../bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
+<link rel="import" href="../../bower_components/app-layout/app-header/app-header.html">
+<link rel="import" href="../../bower_components/app-layout/app-header-layout/app-header-layout.html">
+<link rel="import" href="../../bower_components/app-layout/app-toolbar/app-toolbar.html">
+<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../../bower_components/paper-toolbar/paper-toolbar.html">
+<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../../bower_components/app-route/app-location.html">
+<link rel="import" href="../../bower_components/app-route/app-route.html">
+
+<link rel="import" href="./main-drawer.html">
+<link rel="import" href="./expenses-dashboard.html">
+<link rel="import" href="./expenses-settings.html">
+
+<dom-module id="expenses-app">
+  <template>
+    <style>
+    :host {
+      display: block
+    }
+    </style>
+
+    <app-drawer-layout>
+      <app-location route="{{route}}"></app-location>
+
+      <app-route
+        route="{{route}}"
+        pattern="/:view"
+        data="{{routeData}}"
+        tail="{{subroute}}"></app-route>
+
+      <app-drawer>
+        <main-drawer></main-drawer>
+      </app-drawer>
+
+      <app-header-layout>
+        <app-header>
+          <paper-toolbar>
+            <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
+            <div class="title">
+              Expenses App
+            </div>
+          </paper-toolbar>
+
+          <iron-pages selected="[[view]]">
+            <expenses-dashboard name="dashboard" route="{{subroute}}"></expenses-dashboard>
+            <expenses-settings name="settings" route="{{subroute}}"></expenses-settings>
+          </iron-pages>
+        </app-header>
+      </app-header-layout>
+    </app-drawer-layout>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'expenses-app',
+    });
+  </script>
+</dom-module>
